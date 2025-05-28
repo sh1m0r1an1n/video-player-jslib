@@ -21,7 +21,6 @@
       background: black;
       min-height: 30px;
       display: flex;
-      align-items: center;
     }
     
     .control-button {
@@ -33,6 +32,7 @@
     
     .control-icon {
       color: white;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -45,6 +45,12 @@
       </button>
       <button class="js-pause-button control-button" hidden>
         <i class="fa fa-pause control-icon" aria-hidden="true"></i>
+      </button>
+      <button class="js-volume-button control-button">
+        <i class="fa fa-volume-up control-icon" aria-hidden="true"></i>
+      </button>
+      <button class="js-mute-button control-button" hidden>
+        <i class="fa fa-volume-off control-icon" aria-hidden="true"></i>
       </button>
     </div>
   </div>
