@@ -4,13 +4,45 @@
   <title>Пример подключения плеера</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="/static/font-awesome.min.css">
+  <style>
+    .video-player {
+      width: 800px;
+      height: 600px;
+    }
+    
+    .video-container {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .controls-container {
+      background: black;
+      width: 100%;
+    }
+    
+    .control-button {
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+      width: 20px;
+      height: 20px;
+    }
+    
+    .control-icon {
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <div id="player" style="width: 800px; height: 600px;">
-    <div class="js-video-container" style="width: 100%; height: 100%"></div>
-    <div style="background: black; width: 100%;">
-      <button class="js-play-button" style="border: none; cursor: pointer; background-color: transparent; width: 20px; height: 20px;"><i class="fa fa-play" aria-hidden="true" style="color: white;"></i></button>
-      <button class="js-pause-button" style="border: none; cursor: pointer; background-color: transparent; width: 20px; height: 20px;" hidden><i class="fa fa-pause" aria-hidden="true" style="color: white;"></i></button>
+  <div id="player" class="video-player">
+    <div class="js-video-container video-container"></div>
+    <div class="controls-container">
+      <button class="js-play-button control-button">
+        <i class="fa fa-play control-icon" aria-hidden="true"></i>
+      </button>
+      <button class="js-pause-button control-button" hidden>
+        <i class="fa fa-pause control-icon" aria-hidden="true"></i>
+      </button>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
