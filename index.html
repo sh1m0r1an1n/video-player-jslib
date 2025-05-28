@@ -31,9 +31,17 @@
       margin-right: 20px;
     }
     
+    .control-button:last-child {
+      margin-right: 0;
+    }
+    
     .control-icon {
       color: white;
       font-size: 24px;
+    }
+
+    .spacer {
+      flex-grow: 1;
     }
   </style>
 </head>
@@ -52,6 +60,10 @@
       </button>
       <button class="js-mute-button control-button" hidden>
         <i class="fa fa-volume-off control-icon" aria-hidden="true"></i>
+      </button>
+      <div class="spacer"></div>
+      <button class="js-fullscreen-button control-button">
+        <i class="fa fa-expand control-icon" aria-hidden="true"></i>
       </button>
     </div>
   </div>
