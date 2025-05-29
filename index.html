@@ -4,7 +4,11 @@
   <title>Пример подключения плеера</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="static/favicon.svg" type="image/svg+xml">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     .video-player {
       width: 800px;
       height: 600px;
@@ -21,6 +25,7 @@
       background: black;
       min-height: 30px;
       display: flex;
+      align-items: center;
     }
     
     .control-button {
@@ -28,7 +33,12 @@
       cursor: pointer;
       background-color: transparent;
       padding: 5px;
-      margin-right: 20px;
+      margin-right: 5px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     
     .control-button:last-child {
@@ -38,10 +48,32 @@
     .control-icon {
       color: white;
       font-size: 24px;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .control-button[hidden]:not([hidden="false"]) {
+      display: none;
     }
 
     .spacer {
       flex-grow: 1;
+    }
+
+    .toggle-group {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin-right: 5px;
+    }
+    .toggle-group .control-button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      margin-right: 0;
     }
   </style>
 </head>
@@ -49,18 +81,22 @@
   <div id="player" class="video-player">
     <div class="js-video-container video-container"></div>
     <div class="controls-container">
-      <button class="js-play-button control-button">
-        <i class="fa fa-play control-icon" aria-hidden="true"></i>
-      </button>
-      <button class="js-pause-button control-button" hidden>
-        <i class="fa fa-pause control-icon" aria-hidden="true"></i>
-      </button>
-      <button class="js-volume-button control-button">
-        <i class="fa fa-volume-up control-icon" aria-hidden="true"></i>
-      </button>
-      <button class="js-mute-button control-button" hidden>
-        <i class="fa fa-volume-off control-icon" aria-hidden="true"></i>
-      </button>
+      <div class="toggle-group play-toggle">
+        <button class="js-play-button control-button">
+          <i class="fa fa-play control-icon" aria-hidden="true"></i>
+        </button>
+        <button class="js-pause-button control-button" hidden>
+          <i class="fa fa-pause control-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="toggle-group volume-toggle">
+        <button class="js-volume-button control-button">
+          <i class="fa fa-volume-up control-icon" aria-hidden="true"></i>
+        </button>
+        <button class="js-mute-button control-button" hidden>
+          <i class="fa fa-volume-off control-icon" aria-hidden="true"></i>
+        </button>
+      </div>
       <div class="spacer"></div>
       <button class="js-fullscreen-button control-button">
         <i class="fa fa-expand control-icon" aria-hidden="true"></i>
